@@ -6,8 +6,19 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4972CA422DBA8384003ABBBB /* SwiftGodotKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4972CA412DBA8384003ABBBB /* SwiftGodotKit */; };
+		4972CA442DBA83DD003ABBBB /* main.pck in Resources */ = {isa = PBXBuildFile; fileRef = 4972CA432DBA83DD003ABBBB /* main.pck */; };
+		4972CCD02DBAC79B003ABBBB /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4972CCCF2DBAC79B003ABBBB /* Metal.framework */; };
+		4972CCDB2DBACB1E003ABBBB /* MetalFX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4972CCDA2DBACB1E003ABBBB /* MetalFX.framework */; platformFilter = ios; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		4972CA312DBA835D003ABBBB /* SwiftGodotKitSamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftGodotKitSamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4972CA432DBA83DD003ABBBB /* main.pck */ = {isa = PBXFileReference; lastKnownFileType = file; path = main.pck; sourceTree = "<group>"; };
+		4972CCCF2DBAC79B003ABBBB /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.4.sdk/System/Library/Frameworks/Metal.framework; sourceTree = DEVELOPER_DIR; };
+		4972CCD12DBAC7BE003ABBBB /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.4.sdk/System/Library/Frameworks/AudioUnit.framework; sourceTree = DEVELOPER_DIR; };
+		4972CCDA2DBACB1E003ABBBB /* MetalFX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalFX.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.4.sdk/System/Library/Frameworks/MetalFX.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -23,6 +34,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4972CCDB2DBACB1E003ABBBB /* MetalFX.framework in Frameworks */,
+				4972CCD02DBAC79B003ABBBB /* Metal.framework in Frameworks */,
+				4972CA422DBA8384003ABBBB /* SwiftGodotKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,7 +46,9 @@
 		4972CA282DBA835D003ABBBB = {
 			isa = PBXGroup;
 			children = (
+				4972CA432DBA83DD003ABBBB /* main.pck */,
 				4972CA332DBA835D003ABBBB /* SwiftGodotKitSamples */,
+				4972CCCE2DBAC79B003ABBBB /* Frameworks */,
 				4972CA322DBA835D003ABBBB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +59,16 @@
 				4972CA312DBA835D003ABBBB /* SwiftGodotKitSamples.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		4972CCCE2DBAC79B003ABBBB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4972CCDA2DBACB1E003ABBBB /* MetalFX.framework */,
+				4972CCD12DBAC7BE003ABBBB /* AudioUnit.framework */,
+				4972CCCF2DBAC79B003ABBBB /* Metal.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -65,6 +91,7 @@
 			);
 			name = SwiftGodotKitSamples;
 			packageProductDependencies = (
+				4972CA412DBA8384003ABBBB /* SwiftGodotKit */,
 			);
 			productName = SwiftGodotKitSamples;
 			productReference = 4972CA312DBA835D003ABBBB /* SwiftGodotKitSamples.app */;
@@ -94,6 +121,9 @@
 			);
 			mainGroup = 4972CA282DBA835D003ABBBB;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				4972CA402DBA8384003ABBBB /* XCLocalSwiftPackageReference "../SwiftGodotKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 4972CA322DBA835D003ABBBB /* Products */;
 			projectDirPath = "";
@@ -109,6 +139,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4972CA442DBA83DD003ABBBB /* main.pck in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +275,7 @@
 		4972CA3E2DBA835E003ABBBB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SwiftGodotKitSamples/SwiftGodotKitSamples.entitlements;
@@ -268,11 +300,13 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.3;
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = org.tirania.SwiftGodotKitSamples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
@@ -283,6 +317,7 @@
 		4972CA3F2DBA835E003ABBBB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SwiftGodotKitSamples/SwiftGodotKitSamples.entitlements;
@@ -307,11 +342,13 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.3;
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = org.tirania.SwiftGodotKitSamples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
@@ -341,6 +378,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		4972CA402DBA8384003ABBBB /* XCLocalSwiftPackageReference "../SwiftGodotKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../SwiftGodotKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4972CA412DBA8384003ABBBB /* SwiftGodotKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftGodotKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4972CA292DBA835D003ABBBB /* Project object */;
 }
