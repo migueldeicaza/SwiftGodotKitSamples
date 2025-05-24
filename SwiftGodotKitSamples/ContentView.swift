@@ -14,18 +14,13 @@ struct ContentView: View {
         VStack {
             Text("The image below is a Godot game:")
             GodotAppView()
-                .environment(\.godotApp, app)
-        }
-        .onAppear {
-            let dir = Bundle.main.resourcePath ?? "."
-            let file = "\(dir)/main.pck"
-            let p = try! Data(contentsOf: URL(filePath: file))
-            print("path is: \(Bundle.main.resourcePath)")
-            let e = FileManager.default.enumerator(atPath: Bundle.main.resourcePath ?? ".")
-            while let file = e?.nextObject() {
-                print (file)
+            Divider()
+            Text("This is a Godot button embedded:")
+            GodotWindow { host in
+                createGodotContent(in: host)
             }
         }
+        .environment(\.godotApp, app)
         .padding()
     }
 }
